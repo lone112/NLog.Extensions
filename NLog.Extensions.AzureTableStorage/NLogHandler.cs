@@ -63,6 +63,7 @@ namespace NLog.Extensions.AzureTableStorage
             eventInfo.Properties.Add("Method", response.RequestMessage.Method);
             eventInfo.Properties.Add("Url", response.RequestMessage.RequestUri);
             eventInfo.Properties.Add("StatusCode", (int)response.StatusCode);
+            eventInfo.Properties.Add("Duration", elapsedMilliseconds);
             StringBuilder sb = new StringBuilder();
             sb.Append(response.RequestMessage.Method).Append(" ").Append(response.RequestMessage.RequestUri).Append(" Code: ").Append((int)response.StatusCode);
 
