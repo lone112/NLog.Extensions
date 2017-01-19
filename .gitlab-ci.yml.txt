@@ -1,0 +1,12 @@
+before_script:
+  - call SetEnv.bat
+
+stages:
+  - build
+
+build_job:
+  stage: build
+  script:
+    - msbuild /t:Build /p:Configuration=Debug NLog.Extensions.AzureTableStorage\NLog.Extensions.AzureTableStorage.csproj
+    - copy /Y NLog.Extensions.AzureTableStorage\bin\Debug\NLog.Extensions.AzureTableStorage.dll build\NLog.Extensions.AzureTableStorage.dll
+    - copy /Y NLog.Extensions.AzureTableStorage\bin\Debug\NLog.Extensions.AzureTableStorage.pdb build\NLog.Extensions.AzureTableStorage.pdb
